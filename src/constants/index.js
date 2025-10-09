@@ -183,7 +183,7 @@ const testimonials = [
   },
   {
     testimonial:
-      "Ambar has always been determined and curious since childhood. Watching him grow into a skilled developer makes me incredibly proud. His dedication to learning new things never stops amazing me.",
+      "He has always been passionate about technology. It's amazing to see how far he's come as a developer.",
     name: "My Mother",
     designation: "CEO",
     company: "Home",

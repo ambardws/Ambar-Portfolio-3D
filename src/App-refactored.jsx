@@ -6,7 +6,7 @@ import { PageLayout } from "./design-system/templates";
 
 // Features
 import { HeroSection } from "./features/hero";
-import { AboutSection } from "./features/about";
+import { AboutSection } from "./features/about/components/AboutSection";
 
 // Legacy components (to be refactored)
 import {

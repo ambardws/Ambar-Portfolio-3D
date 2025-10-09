@@ -1,7 +1,4 @@
 import {
-  mobile,
-  backend,
-  creator,
   web,
   javascript,
   typescript,
@@ -11,18 +8,14 @@ import {
   redux,
   tailwind,
   nodejs,
-  mongodb,
   git,
   figma,
-  docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
-  carrent,
-  jobit,
-  tripguide,
-  threejs,
+  starbuck,
+  marketplace,
+  movie,
+  angular,
+  vue,
+  next
 } from "../assets";
 
 export const navLinks = [
@@ -77,6 +70,18 @@ const technologies = [
     icon: typescript,
   },
   {
+    name: "Angular",
+    icon: angular,
+  },
+  {
+    name: "Next JS",
+    icon: next,
+  },
+  {
+    name: "Vue JS",
+    icon: vue,
+  },
+  {
     name: "React JS",
     icon: reactjs,
   },
@@ -93,34 +98,37 @@ const technologies = [
     icon: nodejs,
   },
   {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
-  },
-  {
     name: "git",
     icon: git,
   },
   {
     name: "figma",
     icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
+  }
 ];
 
 const experiences = [
   {
-    title: "React.js Developer",
-    company_name: "Starbucks",
-    icon: starbucks,
-    iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    title: "Frontend Developer",
+    company_name: "Ako Media Asia",
+    icon: 'https://media.licdn.com/dms/image/v2/D560BAQH-lIDHavg74g/company-logo_100_100/company-logo_100_100/0/1708583074448/salt_indonesia_logo?e=1762992000&v=beta&t=08h44Dd-1arwQ9yqzmahDULcvbwj_Ac6Wwc5LIJrO68',
+    iconBg: "#d20681",
+    date: "Oct 2024 - Present",
+    points: [
+      "Developing and maintaining web applications",
+      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+      "Implementing responsive design and ensuring cross-browser compatibility.",
+      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Implementing unit and integration tests using Jest to ensure code quality and reliability.",
+      "Implementing gzip compression and lazy loading to optimize web application performance and reduce load times.",
+    ],
+  },
+  {
+    title: "Frontend Developer",
+    company_name: "Meteor Inovasi Digital",
+    icon: 'https://media.licdn.com/dms/image/v2/D4D0BAQETuQ4t1c57vA/company-logo_100_100/company-logo_100_100/0/1683189653916/meteorid_logo?e=1762992000&v=beta&t=XZJPXnxhkjBBVsddN0hKfKN88B4FbcvaHdt_o6oB6vM',
+    iconBg: "#FE0000",
+    date: "Feb 2022 - Dec 2023",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
@@ -129,42 +137,29 @@ const experiences = [
     ],
   },
   {
-    title: "React Native Developer",
-    company_name: "Tesla",
-    icon: tesla,
-    iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    title: "Frontend Developer",
+    company_name: "Axiata Digital Labs",
+    icon: 'https://media.licdn.com/dms/image/v2/C560BAQE9-4bSDMJ8mg/company-logo_100_100/company-logo_100_100/0/1631153821451/axiatadigitallabsatthelab_logo?e=1762992000&v=beta&t=_0cSyGiM-Hg2-ynN9c60NQpV_33ORfRr2TVMVLj1YSg',
+    iconBg: "#FFF",
+    date: "Apr 2022 - Jun 2023",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Built web frontends using Angular and TypeScript.",
+      "Implemented dynamic client-side logic and reusable components with TypeScript.",
+      "Integrated frontend interfaces with backend services and APIs.",
     ],
   },
   {
-    title: "Web Developer",
-    company_name: "Shopify",
-    icon: shopify,
-    iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+    title: "Internship Full Stack Developer",
+    company_name: "Uasoft",
+    icon: 'https://media.licdn.com/dms/image/v2/C560BAQERZfLHJSABOw/company-logo_100_100/company-logo_100_100/0/1630654277581/uatech_logo?e=1762992000&v=beta&t=oGWK29uz4uiq0Cor81noKmYkb5MmVXV6aPQ1wBVDwIM',
+    iconBg: "#000",
+    date: "Aug 2020 - Oct 2020",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
-    ],
-  },
-  {
-    title: "Full stack Developer",
-    company_name: "Meta",
-    icon: meta,
-    iconBg: "#E6DEDD",
-    date: "Jan 2023 - Present",
-    points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Developed software using PHP and the Laravel framework.",
+      "Implemented the 'Guru Saham' Telegram bot to deliver stock insights and notifications.",
+      "Added and enhanced features for the 'Guru Saham' bot to improve usability and functionality.",
+      "Developed and extended features in the Guru Saham administrative web panel.",
+      "Identified, diagnosed, and fixed bugs to improve application stability and performance.",
     ],
   },
 ];
@@ -173,41 +168,41 @@ const testimonials = [
   {
     testimonial:
       "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+    name: "Ryan Apriansyah",
+    designation: "Frontend Developer",
+    company: "Ako Media Asia",
+    image: "https://randomuser.me/api/portraits/men/4.jpg",
   },
   {
     testimonial:
       "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    name: "Jodhi Gunawan",
+    designation: "Frontend Developer",
+    company: "Ako Media Asia",
+    image: "https://randomuser.me/api/portraits/men/1.jpg",
   },
   {
     testimonial:
       "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
+    name: "My Mother",
+    designation: "CEO",
+    company: "Home",
     image: "https://randomuser.me/api/portraits/women/6.jpg",
   },
 ];
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Starbucks PWA",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "Web-based platform PWA for ordering and managing Starbucks products.",
     tags: [
       {
-        name: "react",
+        name: "nextjs",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "zustand",
         color: "green-text-gradient",
       },
       {
@@ -215,49 +210,49 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
+    image: starbuck,
     source_code_link: "https://github.com/",
   },
   {
-    name: "Job IT",
+    name: "Marketplace App",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: jobit,
-    source_code_link: "https://github.com/",
-  },
-  {
-    name: "Trip Guide",
-    description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Web application for buying and selling products. Users can browse, search, and filter products, as well as view product details and reviews.",
     tags: [
       {
         name: "nextjs",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "zustand",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "tailwind",
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: marketplace,
+    source_code_link: "https://github.com/",
+  },
+  {
+    name: "Movie App",
+    description:
+      "A comprehensive movie discovery platform that allows users to browse, search, and watch movies, as well as view detailed information about each film.",
+    tags: [
+      {
+        name: "nuxtjs",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "themoviedb",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: movie,
     source_code_link: "https://github.com/",
   },
 ];

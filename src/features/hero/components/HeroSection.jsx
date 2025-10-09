@@ -19,7 +19,7 @@ const HeroSection = ({
   return (
     <section className="relative w-full h-screen mx-auto">
       <div className="sm:px-16 px-6 absolute inset-0 top-[120px] max-w-7xl mx-auto flex items-center">
-        <div className="flex items-center justify-center gap-10">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-10">
           <Image
             src={profileImage}
             alt="Profile"

@@ -181,14 +181,14 @@ const testimonials = [
     company: "Freelancer Abtract Writer",
     image: "https://randomuser.me/api/portraits/men/1.jpg",
   },
-  // {
-  //   testimonial:
-  //     "",
-  //   name: "My Mother",
-  //   designation: "CEO",
-  //   company: "Home",
-  //   image: "https://randomuser.me/api/portraits/women/6.jpg",
-  // },
+  {
+    testimonial:
+      "Ambar has always been determined and curious since childhood. Watching him grow into a skilled developer makes me incredibly proud. His dedication to learning new things never stops amazing me.",
+    name: "My Mother",
+    designation: "CEO",
+    company: "Home",
+    image: "https://randomuser.me/api/portraits/women/6.jpg",
+  },
 ];
 
 const projects = [

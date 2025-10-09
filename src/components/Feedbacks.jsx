@@ -3,6 +3,7 @@ import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 import { testimonials } from "../constants";
+import PropTypes from "prop-types";
 
 const FeedbackCard = ({
   index,
@@ -37,6 +38,15 @@ const FeedbackCard = ({
     </div>
   </motion.div>
 );
+
+FeedbackCard.propTypes = {
+  index: PropTypes.number.isRequired,
+  testimonial: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  designation: PropTypes.string.isRequired,
+  company: PropTypes.string.isRequired,
+  image: PropTypes.string,
+};
 
 const Feedbacks = () => {
   return (

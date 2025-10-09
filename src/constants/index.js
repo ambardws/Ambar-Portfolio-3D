@@ -167,28 +167,28 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
+      "I thought it was impossible to make a website as beautiful as our product, but Ambar proved me wrong.",
     name: "Ryan Apriansyah",
-    designation: "Frontend Developer",
+    designation: "Senior Frontend Developer",
     company: "Ako Media Asia",
     image: "https://randomuser.me/api/portraits/men/4.jpg",
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
+      "I've never met a web developer who trully cares about their client's success like Ambar does.",
     name: "Jodhi Gunawan",
     designation: "Frontend Developer",
-    company: "Ako Media Asia",
+    company: "Freelancer Abtract Writer",
     image: "https://randomuser.me/api/portraits/men/1.jpg",
   },
-  {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "My Mother",
-    designation: "CEO",
-    company: "Home",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
+  // {
+  //   testimonial:
+  //     "",
+  //   name: "My Mother",
+  //   designation: "CEO",
+  //   company: "Home",
+  //   image: "https://randomuser.me/api/portraits/women/6.jpg",
+  // },
 ];
 
 const projects = [

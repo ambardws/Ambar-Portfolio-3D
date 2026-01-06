@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
-import { Button, Typography, Image } from "../../../design-system/atoms";
+import { Button, Image } from "../../../design-system/atoms";
 import { AnimatedText } from "../../../design-system/molecules";
 
 /**
@@ -9,7 +9,6 @@ import { AnimatedText } from "../../../design-system/molecules";
  */
 const HeroSection = ({
   name = "Ambar",
-  title = "Software Engineer",
   description = "I'm a Software Engineer and I'm an experienced frontend developer with 3 years of professional expertise.",
   profileImage,
   onViewProjects,

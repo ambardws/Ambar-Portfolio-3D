@@ -7,6 +7,7 @@ import { textVariant, fadeIn } from "../../../shared/utils/motion";
 /**
  * About Section Organism Component
  * Refactored to use clean architecture and atomic design
+ * Now receives aboutData and servicesData separately
  */
 const AboutSection = ({
   title = "Introduction",
@@ -44,14 +45,16 @@ const AboutSection = ({
         </motion.div>
 
         <div className="mt-20 flex flex-wrap gap-10">
-          {services.map((service, index) => (
-            <ServiceCard
-              key={service.title}
-              index={index}
-              title={service.title}
-              icon={service.icon}
-            />
-          ))}
+          {services
+            .sort((a, b) => a.order - b.order)
+            .map((service, index) => (
+              <ServiceCard
+                key={service.title}
+                index={index}
+                title={service.title}
+                icon={service.icon}
+              />
+            ))}
         </div>
       </div>
     </section>

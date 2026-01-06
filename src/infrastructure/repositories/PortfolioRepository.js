@@ -1,151 +1,104 @@
 /**
  * Data Repository for Portfolio Information
  * Clean Architecture - Infrastructure Layer
+ * Handles profile data for Hero section
  */
 
 import { Portfolio, Project } from "../../domain/entities";
 import heroUser from "../../assets/heroUser.jpeg";
 
-// Mock data - in real app this would come from API/CMS
+// Environment variables
+const STRAPI_API_URL = import.meta.env.VITE_STRAPI_API_URL;
+
+// Mock data - fallback if API fails
 const portfolioData = {
   id: "ambar-portfolio",
   name: "Ambar",
   title: "Software Engineer",
-  description: "I'm a Software Engineer and I'm an experienced frontend developer with 3 years of professional expertise.",
+  description: "I develop 3D visuals, user interfaces and web applications",
   profileImage: heroUser,
-  
-  services: [
-    {
-      title: 'Responsive Web Development',
-      description: 'Building modern, mobile-first websites with clean code and optimal performance',
-      icon: 'https://cdn.jsdelivr.net/npm/tabler-icons@latest/icons/device-desktop.svg',
-      category: 'development'
-    },
-    {
-      title: "UI/UX Implementation",
-      description: 'Converting designs into pixel-perfect, interactive user interfaces',
-      icon: 'https://cdn.jsdelivr.net/npm/tabler-icons@latest/icons/palette.svg',
-      category: 'design'
-    },
-    {
-      title: "Performance Optimization",
-      description: 'Improving website speed, SEO, and Core Web Vitals for better user experience',
-      icon: 'https://cdn.jsdelivr.net/npm/tabler-icons@latest/icons/rocket.svg',
-      category: 'optimization'
-    },
-    {
-      title: "Frontend Consulting",
-      description: 'Providing technical guidance and code reviews for optimal development practices',
-      icon: 'https://cdn.jsdelivr.net/npm/tabler-icons@latest/icons/users.svg',
-      category: 'consulting'
-    }
-  ],
-  
-  technologies: [
-    {
-      name: "HTML 5",
-      icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/html5.svg",
-      isMain: true,
-      proficiency: 90,
-    },
-    {
-      name: "CSS 3",
-      icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/css3.svg",
-      isMain: true,
-      proficiency: 85,
-    },
-    {
-      name: "JavaScript",
-      icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/javascript.svg",
-      isMain: true,
-      proficiency: 88,
-    },
-    {
-      name: "React JS",
-      icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/react.svg",
-      isMain: true,
-      proficiency: 90,
-    },
-    {
-      name: "Tailwind CSS",
-      icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/tailwindcss.svg",
-      isMain: true,
-      proficiency: 85,
-    },
-    {
-      name: "Node JS",
-      icon: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/nodedotjs.svg",
-      isMain: false,
-      proficiency: 75,
-    },
-  ],
-  
-  experiences: [
-    {
-      title: "Frontend Developer",
-      company_name: "Ako Media Asia",
-      icon: "/src/assets/company/ako-media-asia.png",
-      iconBg: "#383E56",
-      startDate: "2024-10-28",
-      endDate: null,
-      points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
-      ],
-    },
-  ],
-  
-  projects: [
-    {
-      id: "carrent",
-      name: "Car Rent",
-      shortDescription: "Web-based platform that allows users to search, book, and manage car rentals from various providers.",
-      description: "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
-      technologies: [
-        { name: "React" },
-        { name: "TypeScript" },
-        { name: "Three.js" },
-        { name: "Framer Motion" },
-      ],
-      images: ["/src/assets/carrent.png"],
-      liveUrl: "https://carrent.example.com",
-      sourceUrl: "https://github.com/example/carrent",
-      completedDate: "2023-12-15",
-      isFeatured: true,
-      category: "Web Application",
-      status: "completed",
-    },
-  ],
-  
-  contactInfo: {
-    email: "ambar@example.com",
-    phone: "+1234567890",
-    location: "Indonesia",
-    socialLinks: {
-      linkedin: "https://linkedin.com/in/ambar",
-      github: "https://github.com/ambar",
-      twitter: "https://twitter.com/ambar",
-    },
-  },
+  technologies: [],
+  experiences: [],
+  projects: []
 };
 
 export class PortfolioRepository {
+  /**
+   * Maps Strapi API response to Portfolio entity format
+   * @param {Object} strapiData - Raw data from Strapi API
+   * @returns {Object} Mapped portfolio data
+   */
+  mapStrapiToPortfolio(strapiData) {
+    // Strapi v4 collection type: fields are at root level of data object
+    // Extract profile image URL from Strapi's nested structure
+    const profileImageData = strapiData.profileImage;
+    
+    let profileImageUrl = heroUser; // Default fallback
+    
+    if (profileImageData) {
+      if (profileImageData.formats?.small?.url) {
+        profileImageUrl = profileImageData.formats.small.url;
+      } else if (profileImageData.url) {
+        profileImageUrl = profileImageData.url;
+      }
+    }
+
+    return {
+      id: strapiData.documentId || strapiData.id,
+      name: strapiData.name,
+      title: strapiData.title,
+      description: strapiData.description,
+      profileImage: profileImageUrl,
+      technologies: strapiData.technologies || [],
+      experiences: strapiData.experiences || [],
+      projects: strapiData.projects || [],
+    };
+  }
+
+  /**
+   * Fetch portfolio data (profile info for Hero, plus technologies, experiences, projects)
+   * @returns {Promise<Portfolio>} Portfolio entity instance
+   */
   async getPortfolio() {
-    // Simulate API call
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(new Portfolio(portfolioData));
-      }, 100);
-    });
+    try {
+      const response = await fetch(
+        `${STRAPI_API_URL}/api/profile-collection?populate=*`
+      );
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const result = await response.json();
+      
+      // Strapi v4 collection type returns data as object (not array)
+      if (!result.data) {
+        console.warn("No portfolio data returned from Strapi, using fallback data");
+        return new Portfolio(portfolioData);
+      }
+      
+      // Get the profile data (it's an object, not an array)
+      const strapiProfile = result.data;
+      
+      // Map Strapi data to Portfolio entity format
+      const mappedData = this.mapStrapiToPortfolio(strapiProfile);
+      
+      const portfolio = new Portfolio(mappedData);
+      
+      return portfolio;
+    } catch (error) {
+      console.error("Error fetching portfolio data from Strapi:", error);
+      
+      // Return fallback data instead of throwing error
+      return new Portfolio(portfolioData);
+    }
   }
   
   async getProjects(filters = {}) {
     // Simulate API call with filtering
     return new Promise((resolve) => {
       setTimeout(() => {
-        let projects = portfolioData.projects.map(project => new Project(project));
+        let projects = portfolioData.projects?.map(project => new Project(project)) || [];
         
         if (filters.featured) {
           projects = projects.filter(p => p.isFeatured);

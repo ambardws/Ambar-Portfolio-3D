@@ -4,27 +4,23 @@
  */
 export class Portfolio {
   constructor({ 
-    id, 
-    name, 
-    title, 
-    description, 
-    services = [], 
+    id,
+    name,
+    title,
+    description,
+    profileImage,
     technologies = [], 
     experiences = [], 
-    projects = [],
-    profileImage,
-    contactInfo = {} 
+    projects = []
   }) {
     this.id = id;
     this.name = name;
     this.title = title;
     this.description = description;
-    this.services = services;
+    this.profileImage = profileImage;
     this.technologies = technologies;
     this.experiences = experiences;
     this.projects = projects;
-    this.profileImage = profileImage;
-    this.contactInfo = contactInfo;
   }
 
   // Business logic methods

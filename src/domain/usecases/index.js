@@ -1,6 +1,66 @@
 /**
+ * Get About Data Use Case
+ * Business logic for retrieving about/profile information
+ */
+export class GetAboutUseCase {
+  constructor(aboutRepository) {
+    this.aboutRepository = aboutRepository;
+  }
+
+  async execute() {
+    try {
+      const aboutData = await this.aboutRepository.getAbout();
+      
+      if (!aboutData) {
+        throw new Error('About data not found');
+      }
+
+      return {
+        success: true,
+        data: aboutData,
+      };
+    } catch (error) {
+      return {
+        success: false,
+        error: error.message,
+      };
+    }
+  }
+}
+
+/**
+ * Get Services Data Use Case
+ * Business logic for retrieving services information
+ */
+export class GetServicesUseCase {
+  constructor(servicesRepository) {
+    this.servicesRepository = servicesRepository;
+  }
+
+  async execute() {
+    try {
+      const servicesData = await this.servicesRepository.getServices();
+      
+      if (!servicesData) {
+        throw new Error('Services data not found');
+      }
+
+      return {
+        success: true,
+        data: servicesData,
+      };
+    } catch (error) {
+      return {
+        success: false,
+        error: error.message,
+      };
+    }
+  }
+}
+
+/**
  * Get Portfolio Data Use Case
- * Business logic for retrieving portfolio information
+ * Business logic for retrieving portfolio information (technologies, experiences, projects)
  */
 export class GetPortfolioUseCase {
   constructor(portfolioRepository) {
